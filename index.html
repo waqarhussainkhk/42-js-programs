@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Beginner JavaScript Programs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>42 Beginner JavaScript Programs</h1>
+
+    <section>
+        <h2>1. Hello World</h2>
+        <button onclick="helloWorld()">Run</button>
+        <script>
+            function helloWorld() {
+                console.log("Hello, World!");
+                alert("Hello, World!");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>2. Sum of Two Numbers</h2>
+        <input type="number" id="num1">
+        <input type="number" id="num2">
+        <button onclick="sumTwoNumbers()">Run</button>
+        <script>
+            function sumTwoNumbers() {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                alert("Sum: " + (num1 + num2));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>3. Odd or Even</h2>
+        <input type="number" id="oddEvenNum">
+        <button onclick="oddOrEven()">Run</button>
+        <script>
+            function oddOrEven() {
+                let num = parseInt(document.getElementById('oddEvenNum').value);
+                alert(num % 2 === 0 ? "Even" : "Odd");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>4. Simple Calculator</h2>
+        <input type="number" id="calcNum1">
+        <input type="number" id="calcNum2">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button onclick="simpleCalculator()">Run</button>
+        <script>
+            function simpleCalculator() {
+                let num1 = parseFloat(document.getElementById('calcNum1').value);
+                let num2 = parseFloat(document.getElementById('calcNum2').value);
+                let operator = document.getElementById('operator').value;
+                let result;
+                switch(operator) {
+                    case '+': result = num1 + num2; break;
+                    case '-': result = num1 - num2; break;
+                    case '*': result = num1 * num2; break;
+                    case '/': result = num1 / num2; break;
+                }
+                alert("Result: " + result);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>5. Factorial</h2>
+        <input type="number" id="factorialNum">
+        <button onclick="calculateFactorial()">Run</button>
+        <script>
+            function calculateFactorial() {
+                let num = parseInt(document.getElementById('factorialNum').value);
+                let factorial = 1;
+                for (let i = 1; i <= num; i++) {
+                    factorial *= i;
+                }
+                alert("Factorial: " + factorial);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>6. Palindrome Checker</h2>
+        <input type="text" id="palindromeStr">
+        <button onclick="checkPalindrome()">Run</button>
+        <script>
+            function checkPalindrome() {
+                let str = document.getElementById('palindromeStr').value;
+                let reversedStr = str.split('').reverse().join('');
+                alert(str === reversedStr ? "Palindrome" : "Not Palindrome");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>7. Fibonacci Sequence</h2>
+        <input type="number" id="fibonacciNum">
+        <button onclick="fibonacciSequence()">Run</button>
+        <script>
+            function fibonacciSequence() {
+                let num = parseInt(document.getElementById('fibonacciNum').value);
+                let fib = [0, 1];
+                for (let i = 2; i <= num; i++) {
+                    fib[i] = fib[i - 1] + fib[i - 2];
+                }
+                alert("Fibonacci Sequence: " + fib.slice(0, num + 1).join(', '));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>8. Prime Number Checker</h2>
+        <input type="number" id="primeNum">
+        <button onclick="checkPrime()">Run</button>
+        <script>
+            function checkPrime() {
+                let num = parseInt(document.getElementById('primeNum').value);
+                if (num <= 1) {
+                    alert("Not Prime");
+                    return;
+                }
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        alert("Not Prime");
+                        return;
+                    }
+                }
+                alert("Prime");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>9. Random Number Generator</h2>
+        <button onclick="generateRandomNumber()">Run</button>
+        <script>
+            function generateRandomNumber() {
+                alert("Random Number: " + Math.floor(Math.random() * 100) + 1);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>10. Temperature Converter</h2>
+        <input type="number" id="tempCelsius">
+        <button onclick="convertToFahrenheit()">Convert to Fahrenheit</button>
+        <input type="number" id="tempFahrenheit">
+        <button onclick="convertToCelsius()">Convert to Celsius</button>
+        <script>
+            function convertToFahrenheit() {
+                let celsius = parseFloat(document.getElementById('tempCelsius').value);
+                let fahrenheit = (celsius * 9/5) + 32;
+                alert("Fahrenheit: " + fahrenheit);
+            }
+            function convertToCelsius() {
+                let fahrenheit = parseFloat(document.getElementById('tempFahrenheit').value);
+                let celsius = (fahrenheit - 32) * 5/9;
+                alert("Celsius: " + celsius);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>11. Grade Calculator</h2>
+        <input type="number" id="marks">
+        <button onclick="calculateGrade()">Run</button>
+        <script>
+            function calculateGrade() {
+                let marks = parseFloat(document.getElementById('marks').value);
+                let grade;
+                if (marks >= 90) grade = 'A';
+                else if (marks >= 80) grade = 'B';
+                else if (marks >= 70) grade = 'C';
+                else if (marks >= 60) grade = 'D';
+                else grade = 'F';
+                alert("Grade: " + grade);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>12. Reverse a String</h2>
+        <input type="text" id="reverseStr">
+        <button onclick="reverseString()">Run</button>
+        <script>
+            function reverseString() {
+                let str = document.getElementById('reverseStr').value;
+                alert("Reversed String: " + str.split('').reverse().join(''));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>13. Count Vowels</h2>
+        <input type="text" id="vowelStr">
+        <button onclick="countVowels()">Run</button>
+        <script>
+            function countVowels() {
+                let str = document.getElementById('vowelStr').value;
+                let count = str.match(/[aeiou]/gi).length;
+                alert("Number of Vowels: " + count);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>14. Sum of Array Elements</h2>
+        <input type="text" id="arrayElements" placeholder="Enter numbers separated by commas">
+        <button onclick="sumArrayElements()">Run</button>
+        <script>
+            function sumArrayElements() {
+                let elements = document.getElementById('arrayElements').value.split(',').map(Number);
+                let sum = elements.reduce((acc, curr) => acc + curr, 0);
+                alert("Sum: " + sum);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>15. Maximum and Minimum in Array</h2>
+        <input type="text" id="arrayMaxMinElements" placeholder="Enter numbers separated by commas">
+        <button onclick="findMaxMin()">Run</button>
+        <script>
+            function findMaxMin() {
+                let elements = document.getElementById('arrayMaxMinElements').value.split(',').map(Number);
+                let max = Math.max(...elements);
+                let min = Math.min(...elements);
+                alert("Max: " + max + ", Min: " + min);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>16. Simple To-Do List</h2>
+        <input type="text" id="todoItem">
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoList"></ul>
+        <script>
+            function addTodo() {
+                let item = document.getElementById('todoItem').value;
+                let li = document.createElement('li');
+                li.textContent = item;
+                document.getElementById('todoList').appendChild(li);
+                document.getElementById('todoItem').value = '';
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>17. Character Frequency Counter</h2>
+        <input type="text" id="freqStr">
+        <button onclick="countFrequency()">Run</button>
+        <script>
+            function countFrequency() {
+                let str = document.getElementById('freqStr').value;
+                let freq = {};
+                for (let char of str) {
+                    freq[char] = (freq[char] || 0) + 1;
+                }
+                alert(JSON.stringify(freq));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>18. Remove Duplicates from Array</h2>
+        <input type="text" id="dupArray" placeholder="Enter numbers separated by commas">
+        <button onclick="removeDuplicates()">Run</button>
+        <script>
+            function removeDuplicates() {
+                let elements = document.getElementById('dupArray').value.split(',').map(Number);
+                let uniqueElements = [...new Set(elements)];
+                alert("Unique Elements: " + uniqueElements.join(', '));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>19. Array Sorting</h2>
+        <input type="text" id="sortArray" placeholder="Enter numbers separated by commas">
+        <button onclick="sortArray()">Run</button>
+        <script>
+            function sortArray() {
+                let elements = document.getElementById('sortArray').value.split(',').map(Number);
+                elements.sort((a, b) => a - b);
+                alert("Sorted Array: " + elements.join(', '));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>20. Leap Year Checker</h2>
+        <input type="number" id="leapYear">
+        <button onclick="checkLeapYear()">Run</button>
+        <script>
+            function checkLeapYear() {
+                let year = parseInt(document.getElementById('leapYear').value);
+                let isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+                alert(isLeap ? "Leap Year" : "Not Leap Year");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>21. Simple Stopwatch</h2>
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <div id="stopwatch">0</div>
+        <script>
+            let stopwatchInterval;
+            let time = 0;
+            function startStopwatch() {
+                stopwatchInterval = setInterval(() => {
+                    time++;
+                    document.getElementById('stopwatch').textContent = time;
+                }, 1000);
+            }
+            function stopStopwatch() {
+                clearInterval(stopwatchInterval);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>22. BMI Calculator</h2>
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <input type="number" id="height" placeholder="Height (m)">
+        <button onclick="calculateBMI()">Run</button>
+        <script>
+            function calculateBMI() {
+                let weight = parseFloat(document.getElementById('weight').value);
+                let height = parseFloat(document.getElementById('height').value);
+                let bmi = weight / (height * height);
+                alert("BMI: " + bmi.toFixed(2));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>23. Multiplication Table</h2>
+        <input type="number" id="multiplicationNum">
+        <button onclick="multiplicationTable()">Run</button>
+        <script>
+            function multiplicationTable() {
+                let num = parseInt(document.getElementById('multiplicationNum').value);
+                let table = '';
+                for (let i = 1; i <= 10; i++) {
+                    table += `${num} x ${i} = ${num * i}\n`;
+                }
+                alert(table);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>24. Number Guessing Game</h2>
+        <button onclick="startGuessingGame()">Start Game</button>
+        <input type="number" id="guessNum">
+        <button onclick="checkGuess()">Guess</button>
+        <script>
+            let randomNum;
+            function startGuessingGame() {
+                randomNum = Math.floor(Math.random() * 100) + 1;
+                alert("Game Started! Guess the number between 1 and 100.");
+            }
+            function checkGuess() {
+                let guess = parseInt(document.getElementById('guessNum').value);
+                if (guess === randomNum) {
+                    alert("Correct! You guessed the number.");
+                } else if (guess > randomNum) {
+                    alert("Too high! Try again.");
+                } else {
+                    alert("Too low! Try again.");
+                }
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>25. Currency Converter</h2>
+        <input type="number" id="amount" placeholder="Amount">
+        <select id="currencyFrom">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <select id="currencyTo">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <button onclick="convertCurrency()">Run</button>
+        <script>
+            const exchangeRates = {
+                "USD": {
+                    "EUR": 0.85
+                },
+                "EUR": {
+                    "USD": 1.18
+                }
+            };
+            function convertCurrency() {
+                let amount = parseFloat(document.getElementById('amount').value);
+                let from = document.getElementById('currencyFrom').value;
+                let to = document.getElementById('currencyTo').value;
+                let rate = exchangeRates[from][to];
+                let converted = amount * rate;
+                alert("Converted Amount: " + converted.toFixed(2));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>26. GCD and LCM</h2>
+        <input type="number" id="gcdNum1">
+        <input type="number" id="gcdNum2">
+        <button onclick="calculateGCDLCM()">Run</button>
+        <script>
+            function gcd(a, b) {
+                if (!b) {
+                    return a;
+                }
+                return gcd(b, a % b);
+            }
+            function calculateGCDLCM() {
+                let num1 = parseInt(document.getElementById('gcdNum1').value);
+                let num2 = parseInt(document.getElementById('gcdNum2').value);
+                let gcdValue = gcd(num1, num2);
+                let lcmValue = (num1 * num2) / gcdValue;
+                alert("GCD: " + gcdValue + ", LCM: " + lcmValue);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>27. Check Armstrong Number</h2>
+        <input type="number" id="armstrongNum">
+        <button onclick="checkArmstrong()">Run</button>
+        <script>
+            function checkArmstrong() {
+                let num = parseInt(document.getElementById('armstrongNum').value);
+                let sum = 0;
+                let temp = num;
+                while (temp > 0) {
+                    let digit = temp % 10;
+                    sum += digit ** 3;
+                    temp = Math.floor(temp / 10);
+                }
+                alert(sum === num ? "Armstrong Number" : "Not Armstrong Number");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>28. Find Duplicates in Array</h2>
+        <input type="text" id="dupFindArray" placeholder="Enter numbers separated by commas">
+        <button onclick="findDuplicates()">Run</button>
+        <script>
+            function findDuplicates() {
+                let elements = document.getElementById('dupFindArray').value.split(',').map(Number);
+                let duplicates = elements.filter((item, index) => elements.indexOf(item) !== index);
+                alert("Duplicates: " + [...new Set(duplicates)].join(', '));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>29. Simple Quiz</h2>
+        <button onclick="startQuiz()">Start Quiz</button>
+        <div id="quiz"></div>
+        <script>
+            const questions = [
+                { question: "What is 2 + 2?", choices: ["3", "4", "5"], correct: "4" },
+                { question: "What is the capital of France?", choices: ["London", "Paris", "Rome"], correct: "Paris" }
+            ];
+            function startQuiz() {
+                let quizDiv = document.getElementById('quiz');
+                quizDiv.innerHTML = '';
+                questions.forEach((q, index) => {
+                    let qDiv = document.createElement('div');
+                    qDiv.textContent = (index + 1) + ". " + q.question;
+                    q.choices.forEach(choice => {
+                        let radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = 'question' + index;
+                        radio.value = choice;
+                        qDiv.appendChild(radio);
+                        qDiv.appendChild(document.createTextNode(choice));
+                    });
+                    quizDiv.appendChild(qDiv);
+                });
+                let submitButton = document.createElement('button');
+                submitButton.textContent = 'Submit';
+                submitButton.onclick = checkQuizAnswers;
+                quizDiv.appendChild(submitButton);
+            }
+            function checkQuizAnswers() {
+                let score = 0;
+                questions.forEach((q, index) => {
+                    let selected = document.querySelector('input[name="question' + index + '"]:checked');
+                    if (selected && selected.value === q.correct) {
+                        score++;
+                    }
+                });
+                alert("Score: " + score + "/" + questions.length);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>30. Countdown Timer</h2>
+        <input type="number" id="countdownTime" placeholder="Seconds">
+        <button onclick="startCountdown()">Start</button>
+        <div id="countdownDisplay">0</div>
+        <script>
+            function startCountdown() {
+                let time = parseInt(document.getElementById('countdownTime').value);
+                let display = document.getElementById('countdownDisplay');
+                let countdownInterval = setInterval(() => {
+                    display.textContent = time;
+                    if (time <= 0) {
+                        clearInterval(countdownInterval);
+                        alert("Time's up!");
+                    } else {
+                        time--;
+                    }
+                }, 1000);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>31. String Anagram Checker</h2>
+        <input type="text" id="anagramStr1" placeholder="String 1">
+        <input type="text" id="anagramStr2" placeholder="String 2">
+        <button onclick="checkAnagram()">Run</button>
+        <script>
+            function checkAnagram() {
+                let str1 = document.getElementById('anagramStr1').value.split('').sort().join('');
+                let str2 = document.getElementById('anagramStr2').value.split('').sort().join('');
+                alert(str1 === str2 ? "Anagrams" : "Not Anagrams");
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>32. Matrix Addition</h2>
+        <textarea id="matrix1" placeholder="Enter first matrix (comma separated)"></textarea>
+        <textarea id="matrix2" placeholder="Enter second matrix (comma separated)"></textarea>
+        <button onclick="addMatrices()">Run</button>
+        <script>
+            function addMatrices() {
+                let matrix1 = document.getElementById('matrix1').value.split('\n').map(row => row.split(',').map(Number));
+                let matrix2 = document.getElementById('matrix2').value.split('\n').map(row => row.split(',').map(Number));
+                let result = matrix1.map((row, i) => row.map((val, j) => val + matrix2[i][j]));
+                alert("Result: " + result.map(row => row.join(',')).join('\n'));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>33. String Permutations</h2>
+        <input type="text" id="permStr">
+        <button onclick="generatePermutations()">Run</button>
+        <script>
+            function generatePermutations() {
+                let str = document.getElementById('permStr').value;
+                let result = [];
+                if (str.length === 1) {
+                    result.push(str);
+                    alert("Permutations: " + result.join(', '));
+                    return;
+                }
+                for (let i = 0; i < str.length; i++) {
+                    let char = str[i];
+                    if (str.indexOf(char) !== i) continue;
+                    let remainder = str.slice(0, i) + str.slice(i + 1);
+                    for (let permutation of generatePermutations(remainder)) {
+                        result.push(char + permutation);
+                    }
+                }
+                alert("Permutations: " + result.join(', '));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>34. Binary to Decimal Conversion</h2>
+        <input type="text" id="binaryNum">
+        <button onclick="binaryToDecimal()">Run</button>
+        <script>
+            function binaryToDecimal() {
+                let binary = document.getElementById('binaryNum').value;
+                let decimal = parseInt(binary, 2);
+                alert("Decimal: " + decimal);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>35. Decimal to Binary Conversion</h2>
+        <input type="number" id="decimalNum">
+        <button onclick="decimalToBinary()">Run</button>
+        <script>
+            function decimalToBinary() {
+                let decimal = parseInt(document.getElementById('decimalNum').value);
+                let binary = decimal.toString(2);
+                alert("Binary: " + binary);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>36. Event Listener Example</h2>
+        <button id="eventButton">Click me!</button>
+        <script>
+            document.getElementById('eventButton').addEventListener('click', function() {
+                this.textContent = "You clicked me!";
+            });
+        </script>
+    </section>
+
+    <section>
+        <h2>37. Fetch API Example</h2>
+        <button onclick="fetchData()">Fetch Data</button>
+        <div id="fetchResult"></div>
+        <script>
+            async function fetchData() {
+                try {
+                    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+                    let data = await response.json();
+                    document.getElementById('fetchResult').textContent = JSON.stringify(data);
+                } catch (error) {
+                    alert("Error fetching data");
+                }
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>38. Local Storage Example</h2>
+        <input type="text" id="localStorageInput" placeholder="Enter text">
+        <button onclick="saveToLocalStorage()">Save</button>
+        <button onclick="loadFromLocalStorage()">Load</button>
+        <script>
+            function saveToLocalStorage() {
+                let text = document.getElementById('localStorageInput').value;
+                localStorage.setItem('storedText', text);
+                alert("Saved!");
+            }
+            function loadFromLocalStorage() {
+                let storedText = localStorage.getItem('storedText');
+                alert("Loaded: " + storedText);
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>39. Form Validation</h2>
+        <form id="validationForm">
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" id="email" placeholder="Email">
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+        <script>
+            function validateForm() {
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                if (!name || !email) {
+                    alert("All fields are required.");
+                } else {
+                    alert("Form submitted successfully!");
+                }
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>40. Drag and Drop</h2>
+        <div id="dragBox" draggable="true" ondragstart="drag(event)" style="width:100px;height:100px;background-color:lightblue;">Drag me</div>
+        <div id="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:200px;height:200px;border:1px solid black;"></div>
+        <script>
+            function allowDrop(event) {
+                event.preventDefault();
+            }
+            function drag(event) {
+                event.dataTransfer.setData("text", event.target.id);
+            }
+            function drop(event) {
+                event.preventDefault();
+                let data = event.dataTransfer.getData("text");
+                event.target.appendChild(document.getElementById(data));
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>41. Image Slider</h2>
+        <img id="sliderImage" src="https://via.placeholder.com/150" alt="Slider" style="width:300px;height:200px;">
+        <button onclick="previousImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+        <script>
+            const images = ["https://via.placeholder.com/150", "https://via.placeholder.com/200", "https://via.placeholder.com/250"];
+            let currentIndex = 0;
+            function previousImage() {
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                document.getElementById('sliderImage').src = images[currentIndex];
+            }
+            function nextImage() {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                document.getElementById('sliderImage').src = images[currentIndex];
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>42. Weather App</h2>
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weatherResult"></div>
+        <script>
+            async function getWeather() {
+                let city = document.getElementById('city').value;
+                try {
+                    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`);
+                    let data = await response.json();
+                    document.getElementById('weatherResult').textContent = `Temperature: ${data.main.temp}K, Weather: ${data.weather[0].description}`;
+                } catch (error) {
+                    alert("Error fetching weather data");
+                }
+            }
+        </script>
+    </section>
+
+</body>
+</html>
